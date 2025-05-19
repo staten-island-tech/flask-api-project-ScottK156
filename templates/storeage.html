@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flask API Project</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <h1>Search up the stats of you or your favorite chess player</h1>
+        <form action="/search" method="GET">
+            <input type="text" name="username" placeholder="Enter Chess.com username" required>
+            <button type="submit">Search</button>
+          </form>
+
+    </body>
+</html>
