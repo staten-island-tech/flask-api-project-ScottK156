@@ -10,7 +10,7 @@ if response.status_code == 200:
     print(data)
 else:
     print(f"Error: Failed to fetch data (status code {response.status_code})")  """
-""" import requests
+import requests
 
 username = "Scott"
 url = f"https://api.chess.com/pub/player/{username}/stats"
@@ -25,9 +25,9 @@ if response.status_code == 200:
     data = response.json()
     print(data)
 else:
-    print(f"Error: Failed to fetch data (status code {response.status_code})") """
+    print(f"Error: Failed to fetch data (status code {response.status_code})")
 
-from flask import Flask, render_template, request
+""" from flask import Flask, render_template, request
 import requests
 app = Flask(__name__)
 
@@ -55,4 +55,4 @@ def index():
 
     return render_template('index.html', user_data=user_data, error=error, username=username)
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) """

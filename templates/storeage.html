@@ -15,3 +15,49 @@
 
     </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chess.com Stats</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Chess.com Player Stats</h1>
+
+    <form method="POST">
+        <input type="text" name="username" placeholder="Enter Chess.com username" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if user_data %}
+        <h2>Stats for {{ username }}</h2>
+        <ul>
+           <div class="stats">
+                {% if user_data.get('chess_rapid') %}
+                    <div class="stat">
+                        <li class="font_color">Current Rapid Rating: {{ user_data['chess_rapid']['last']['rating'] }}</li>
+                        <li>Best Rapid Rating: {{ user_data['chess_rapid']['best']['rating'] }}</li>
+                    </div>
+                {% endif %}
+                {% if user_data.get('chess_blitz') %}
+                    <div class="stat">
+                        <li>Current Blitz Rating: {{ user_data['chess_blitz']['last']['rating'] }}</li>
+                        <li>Best Blitz Rating: {{ user_data['chess_blitz']['best']['rating'] }}</li>
+                    </div>
+                {% endif %}
+                {% if user_data.get('chess_bullet') %}
+                    <div class="stat">
+                        <li>Current Bullet Rating: {{ user_data['chess_bullet']['last']['rating'] }}</li>
+                        <li>Best Bullet Rating: {{ user_data['chess_bullet']['best']['rating'] }}</li>
+                    </div>
+                {% endif %}
+           </div>
+        </ul>
+    {% endif %}
+</body>
+</html>
