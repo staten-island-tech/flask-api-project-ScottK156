@@ -12,7 +12,7 @@ else:
     print(f"Error: Failed to fetch data (status code {response.status_code})")  """
 import requests
 
-username = "Scott"
+username = "Seven"
 url = f"https://api.chess.com/pub/player/{username}/stats"
 
 headers = {

@@ -48,6 +48,7 @@
                     <div class="stat">
                         <li>Current Blitz Rating: {{ user_data['chess_blitz']['last']['rating'] }}</li>
                         <li>Best Blitz Rating: {{ user_data['chess_blitz']['best']['rating'] }}</li>
+                        <li>Blitz Record: {{user_data['chess_blitz']['record']['win']}}</li>
                     </div>
                 {% endif %}
                 {% if user_data.get('chess_bullet') %}
