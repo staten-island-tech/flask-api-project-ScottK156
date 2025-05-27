@@ -16,6 +16,34 @@
     {% if error %}
         <p style="color: red;">{{ error }}</p>
     {% endif %}
+    <h1> Popular Players</h1>
+    <div class="stats">
+        {% for player in popular_players %}
+            <h2>{{player}}</h2>
+            {% if user_data.get('chess_rapid') %}
+            <div class="stat">
+                <li>Current Rapid Rating: {{ user_data['chess_rapid']['last']['rating'] }}</li>
+                <li>Best Rapid Rating: {{ user_data['chess_rapid']['best']['rating'] }}</li>
+                <li>Rapid Record: Win: {{user_data['chess_rapid']['record']['win']}} Loss: {{user_data['chess_rapid']['record']['loss']}} Draw: {{user_data['chess_rapid']['record']['loss']}}</li>
+            </div>
+            {% endif %}
+            {% if user_data.get('chess_blitz') %}
+            <div class="stat">
+                <li>Current Blitz Rating: {{ user_data['chess_blitz']['last']['rating'] }}</li>
+                <li>Best Blitz Rating: {{ user_data['chess_blitz']['best']['rating'] }}</li>
+                <li>Blitz Record: Win: {{user_data['chess_blitz']['record']['win']}} Loss: {{user_data['chess_blitz']['record']['loss']}} Draw: {{user_data['chess_blitz']['record']['loss']}}</li>
+            </div>
+            {% endif %}
+            {% if user_data.get('chess_bullet') %}
+            <div class="stat">
+                <li>Current Bullet Rating: {{ user_data['chess_bullet']['last']['rating'] }}</li>
+                <li>Best Bullet Rating:{{ user_data['chess_bullet']['best']['rating'] }}</li>
+                <li>Bullet Record: Win: {{user_data['chess_bullet']['record']['win']}} Loss: {{user_data['chess_bullet']['record']['loss']}} Draw: {{user_data['chess_bullet']['record']['loss']}}</li>
+            </div>
+          {% endif %}
+            
+        {% endfor %}
+    </div>
 
 </body>
 </html>
