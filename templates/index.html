@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Chess.com Stats</title>
+    <title>Chess.com Player Lookup</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Chess.com Player Stats</h1>
+    <h1>Search Chess.com Player Stats</h1>
 
-    <form method="GET" action="{{ url_for('player_stats') }}">
-        <input type="text" name="username" placeholder="Enter Chess.com username" required>
+    <form action="{{ url_for('player_stats') }}" method="get">
+        <input type="text" name="username" placeholder="Enter username" required>
         <button type="submit">Search</button>
     </form>
 
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
+    <h2>Or click a popular player:</h2>
+    <ul>
+        {% for username in usernames %}
+            <p>
+                <a href="{{ url_for('player_stats') }}?username={{ username }}">{{ username }}</a>
+            </p>
+        {% endfor %}
+    </ul>
 </body>
 </html>

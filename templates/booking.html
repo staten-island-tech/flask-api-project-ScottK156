@@ -23,6 +23,8 @@
                         <li>Best Rapid Rating: {{ user_data['chess_rapid']['best']['rating'] }}</li>
                         <li>Rapid Record: Win: {{user_data['chess_rapid']['record']['win']}} Loss: {{user_data['chess_rapid']['record']['loss']}} Draw: {{user_data['chess_rapid']['record']['loss']}}</li>
                     </div>
+                 {% else %}
+                    <p>No stats for Chess Rapid</p>
                 {% endif %}
                 {% if user_data.get('chess_blitz') %}
                     <div class="stat">
@@ -30,6 +32,8 @@
                         <li>Best Blitz Rating: {{ user_data['chess_blitz']['best']['rating'] }}</li>
                         <li>Blitz Record: Win: {{user_data['chess_blitz']['record']['win']}} Loss: {{user_data['chess_blitz']['record']['loss']}} Draw: {{user_data['chess_blitz']['record']['loss']}}</li>
                     </div>
+                 {% else %}
+                    <p>No stats for Chess Blitz</p>
                 {% endif %}
                 {% if user_data.get('chess_bullet') %}
                     <div class="stat">
@@ -37,6 +41,8 @@
                         <li>Best Bullet Rating:{{ user_data['chess_bullet']['best']['rating'] }}</li>
                         <li>Bullet Record: Win: {{user_data['chess_bullet']['record']['win']}} Loss: {{user_data['chess_bullet']['record']['loss']}} Draw: {{user_data['chess_bullet']['record']['loss']}}</li>
                     </div>
+                {% else %}
+                    <p>No stats for Chess Bullet</p>
                 {% endif %}
             </div>
         </ul>
@@ -46,3 +52,4 @@
     </a>
 </body>
 </html>
+

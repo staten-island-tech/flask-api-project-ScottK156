@@ -36,9 +36,26 @@ import requests
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+chess_com_usernames = [
+    "MagnusCarlsen",
+    "DanielNaroditsky",
+    "lachesisQ",
+    "DingLiren",
+    "akaNemsko",
+    "GothamChess",
+    "AnnaCramling",
+    "EricRosen",
+    "GMBenFinegold",
+    "chessbrah",
+    "AnishGiri",
+    "AlirezaFirouzja",
+    "LeQuangLiem",
+    "IndianLad",
+]
+
+@app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    return render_template('index.html', usernames=chess_com_usernames)
 
 @app.route('/player_stats', methods=['GET'])
 def player_stats():
@@ -54,7 +71,7 @@ def player_stats():
 
         try:
             response = requests.get(url, headers=headers)
-            response.raise_for_status()  # Raises HTTPError for bad responses (4xx, 5xx)
+            response.raise_for_status()  
 
             try:
                 user_data = response.json()
